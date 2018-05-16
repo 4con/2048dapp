@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+  <title>Page Title</title>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+  <script src="lib/nebpay.js"></script>
+  <script src="lib/bignumber.min.js"></script>
+  <script src="lib/2048.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">2048 区块链游戏</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="play.html">开始游戏</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rule.html">了解规则</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ranking.html">排行榜</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user.html">我的</a>
+        </li>
+      </ul>
+      <!--
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dd_net" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown">
+          <a class="dropdown-item" href="#">MainNet</a>
+          <a class="dropdown-item" href="#">TestNet</a>
+        </div>
+      </div>
+      -->
+    </div>
+  </nav>    <input id="btn_test" type="button" value="test">
+<main role="main">
+  <div class="status-container container">
+    <h6 class="text-secondary">
+      支付成功后再点击开始游戏，如有已支付过，直接点击开始游戏
+    </h6>
+    <div class="row mb-2">
+      <button id="btn_query" class="btn btn-md btn-primary col-5 mx-3">开始游戏</button>
+      <button id="btn_pay_start" class="btn btn-secondary btn-md col-4">支付 <span id="fee">loading...</span> NAS</button>
+    </div>
+
+    <div class="row">
+      <h5 class="col-4 text-secondary">游戏局ID: <span id="game_id">无</span></h5>
+      <h5 class="col-6">剩余时间：<span id="time_remain">不在游戏中</span></h5>
+    </div>
+
+    <h3 class="text-center">游戏分数:
+      <span id="lbl_score">0</span>
+    </h3>
+  </div>
+
+  <div class="game-container container">
+    <div class="grid-container">
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <div class="tile-container">
+    </div>
+  </div>
+
+  <div class="upload-container container my-3">
+    <h6 class="mb-2">上传积分时需要将Gas限制自行修改成足够大（比如 20000000），否则上传积分会失败</h6>
+    <div class="row mb-2">
+      <input id="input_msg" class="form-control col" type="text" placeholder="输入留言内容">
+      <button id="btn_upload" class="btn btn-md btn-primary col-2">上传积分</button>
+    </div>
+    <h6 class="mb-2 text-secondary">积分上传成功后，可以访问积分榜查看自己的积分是否上榜</h6>
+  </div>
+</main>
+
+<script>
+  var pp = null;
+  $(window).on('load', function() {
+    pp = new PlayPage(
+      new GameMgr(new UI(), [new KeyboardController(), new BtnController()])
+    );
+  });
+</script>
+  <!-- footer -->
+  <hr>
+  <footer class="container">
+    <p>&copy; Meta-Zero Lab. 2018</p>
+  </footer>
+</body>
+</html>

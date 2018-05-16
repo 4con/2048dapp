@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+  <title>Page Title</title>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+  <script src="lib/nebpay.js"></script>
+  <script src="lib/bignumber.min.js"></script>
+  <script src="lib/2048.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">2048 区块链游戏</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="play.html">开始游戏</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rule.html">了解规则</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ranking.html">排行榜</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user.html">我的</a>
+        </li>
+      </ul>
+      <!--
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dd_net" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown">
+          <a class="dropdown-item" href="#">MainNet</a>
+          <a class="dropdown-item" href="#">TestNet</a>
+        </div>
+      </div>
+      -->
+    </div>
+  </nav>
+<main role="main">
+  <section class="jumbotron">
+    <div class="container">
+      <h1>2048 游戏</h1>
+      <p class="lead text-muted">基于星云链（NAS）区块链技术上的 2048 游戏，在限时时间内完成 2048 游戏获取高分上传，通过你的高超的游戏技巧占领 2048 世界积分排行榜！</p>
+      <p>
+        <a href="play.html" class="btn btn-primary my-2">开始游戏</a>
+        <a href="rule.html" class="btn btn-secondary my-2">了解规则</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="featurettes container">
+    <!-- START THE FEATURETTES -->
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading my-4"> 更多乐趣 </h2>
+        <h4 class="text-muted my-3"> 基于真实的 2048 游戏，带来更高的游戏体验 </h4>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" src="imgs/game.png">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" src="imgs/ranking.png">
+      </div>
+      <div class="col-md-7">
+        <h2 class="featurette-heading my-4"> 排行榜 </h2>
+        <h4 class="text-muted my-3"> 基于星云链 NAS 技术，排行榜真实，无法篡改</h4>
+        <h5 class="my-2"> 等什么，赶紧挑战，成功上榜还可以附加一句留言！ </h5>
+      </div>
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+  </div>
+</main>
+
+  <!-- footer -->
+  <hr>
+  <footer class="container">
+    <p>&copy; Meta-Zero Lab. 2018</p>
+  </footer>
+</body>
+</html>
